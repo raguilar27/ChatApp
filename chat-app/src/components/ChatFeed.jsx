@@ -41,8 +41,6 @@ const ChatFeed = (props) => {
     });
   };
 
-  renderMessages();
-
   if (!chat) return "Loading...";
 
   return (
@@ -55,7 +53,7 @@ const ChatFeed = (props) => {
       </div>
       {renderMessages()}
       <div style={{ height: "100px" }} />
-      <div className="message-from-container">
+      <div className="message-form-container">
         <MessageForm {...props} chatId={activeChat} />
       </div>
     </div>
