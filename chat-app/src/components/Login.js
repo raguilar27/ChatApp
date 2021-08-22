@@ -1,13 +1,13 @@
 import React from "react";
 import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import firebase from "firebase/app";
-import { auth } from "./Firebase";
+import { auth } from "../Firebase";
 
 const Login = () => {
   return (
     <div id="login-page">
       <div id="login-card">
-        <h2>Welcome to chat app</h2>
+        <h2>Welcome to Chat App!</h2>
         <div
           className="login-button google"
           onClick={() =>
