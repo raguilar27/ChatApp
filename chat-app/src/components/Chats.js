@@ -9,9 +9,7 @@ import axios from "axios";
 const Chats = () => {
   const history = useHistory();
   const { user } = useAuth();
-  const { loading, setLoading } = useState(true);
-
-  console.log(user);
+  const [loading, setLoading] = useState(true);
 
   const handleLogout = async () => {
     await auth.signOut();
@@ -34,7 +32,7 @@ const Chats = () => {
     axios
       .get("https://api.chatengine.io/users/me", {
         headers: {
-          "project-id": "d08f76a4-4f5b-473b-a032-c1ce1cacfd0a",
+          "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
           "user-secret": user.uid,
         },
@@ -54,7 +52,7 @@ const Chats = () => {
           axios
             .post("https://api.chatengine.io/users", formdata, {
               headers: {
-                "private-key": "267db406-02a6-4035-b232-be3def69feff",
+                "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
               },
             })
             .then(() => {
@@ -77,9 +75,9 @@ const Chats = () => {
       </div>
       <ChatEngine
         height="calc(100vh - 66px)"
-        projectID="d08f76a4-4f5b-473b-a032-c1ce1cacfd0a"
-        userName="{user.email}"
-        userSecret="{user.uid}"
+        projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
+        userName={user.email}
+        userSecret={user.uid}
       />
     </div>
   );
